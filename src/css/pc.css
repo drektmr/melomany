@@ -1,0 +1,350 @@
+@media (min-width: 1024px) {
+  header {
+    display: block;
+    position: fixed;
+    top: 0;
+    height: 100px;
+    width: 85%;
+    margin-left: 15%;
+    background-color: #000000;
+  }
+  aside {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 15%;
+    height: 100%;
+    background-color: #1c1c1c;
+  }
+  main {
+    margin-left: 15%;
+    margin-top: 100px;
+    margin-bottom: 250px;
+    width: 85%;
+  }
+  footer {
+    height: 210px;
+    width: 85%;
+    right: 0;
+  }
+  h1 {
+    margin: 0;
+    margin-right: 30px;
+    font-size: 40px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  header > input[type="text"] {
+    margin-top: 40px;
+    margin-left: 200px;
+    border-radius: 20px;
+    padding: 7px;
+    width: 300px;
+    border: none;
+  }
+  header button {
+    background-color: #811713;
+    border-radius: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    padding: 7px 20px;
+    margin: 40px 10px;
+    float: right;
+  }
+  header button a {
+    text-decoration: none;
+    color: white;
+  }
+  header > button {
+    margin-right: 10px;
+  }
+  #morelistened p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  aside ul li {
+    list-style: none;
+  }
+  #logo {
+    margin-top: 100px;
+    margin-left: 10%;
+    width: 80%;
+  }
+  #playlists {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #morelistened {
+    display: flex;
+  }
+  #morelistened > div {
+    display: flex;
+    height: 130px;
+    border-radius: 10px;
+    background-color: #1c1c1c;
+    width: 20%;
+    margin-right: 6.6%;
+    align-items: center;
+  }
+  #morelistened > div:last-child {
+    margin: 0;
+  }
+  #morelistened > div > div:first-child {
+    width: 50%;
+  }
+
+  #morelistened > div > div:last-child {
+    width: 50%;
+  }
+  #morelistened > div img {
+    width: 70%;
+    background-color: #811713;
+  }
+
+  #morelistened > div img, #morelistened > div p {
+    margin: 10%;
+  }
+
+  #playlist {
+    display: none;
+  }
+  #listarepro #playlist2 {
+    display: flex;
+  }
+  #listarepro #playlist2 div {
+    display: flex;
+    background-color: #1c1c1c;
+  }
+  #listarepro #playlist2 img {
+    width: 25%;
+  }
+  #playlist2 > div:nth-child(2) {
+    justify-content: flex-end;
+  }
+
+  #listarepro #playlist2 input {
+    width: 10%;
+  }
+  #listarepro > div:nth-child(2) > p {
+    font-size: 24px;
+  }
+  .moviltablet {
+    display: none;
+  }
+  footer .pc {
+    display: block;
+  }
+  footer .pc > div {
+    display: flex;
+  }
+  footer .pc > div:first-child {
+    margin-top: 15px;
+  }
+  .pc > div > div:first-child,
+  .pc > div > div:last-child {
+    width: 25%;
+    display: flex;
+  }
+  .pc > div:last-child > div:first-child {
+    display: block;
+    font-size: 15px;
+  }
+  .pc > div:first-child > div:nth-child(2) {
+    width: 75%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
+  .pc > div:last-child > div:nth-child(2) {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .pc > div:first-child > div:first-child > div:first-child {
+    width: 35%;
+  }
+  .pc > div:first-child img {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  footer > div.pc > div:first-child {
+    background-color: #1c1c1c;
+  }
+
+  footer > div.pc > div:nth-child(2) {
+    background: rgb(38, 38, 38);
+    background: linear-gradient(
+      0deg,
+      rgba(38, 38, 38, 1) 0%,
+      rgba(28, 28, 28, 1) 100%
+    );
+  }
+
+  footer > div.pc > div:nth-child(2) > div:nth-child(3) {
+    align-items: center;
+    justify-content: flex-end;
+  }
+  footer > div.pc > div:nth-child(2) > div:nth-child(3) > img {
+    width: 50px;
+    margin-right: 10%;
+  }
+  footer
+    > div.pc
+    > div:nth-child(1)
+    > div:nth-child(1)
+    > div:nth-child(1)
+    > img {
+    border-radius: 0%;
+  }
+  footer > div.pc > div:nth-child(2) > div:nth-child(2) > img {
+    height: 80%;
+  }
+  .pc > div:first-child > div:first-child{
+      margin-left: 30px;
+  }
+  footer > div.pc > div:nth-child(2) > div:nth-child(1) {
+    color: #811713;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 30px;
+    line-height: 10px;
+  }
+  footer > div.pc > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+  aside.perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  aside.perfil img {
+    width: 75%;
+    border-radius: 50%;
+    margin-top: 100px;
+  }
+  aside.perfil h2 {
+    letter-spacing: 5px;
+    color: #801713;
+  }
+  .usuari {
+    width: 90%;
+    font-size: 14px;
+  }
+  .usuari tr td:first-child {
+    text-align: left;
+    color: #801713;
+    font-weight: bold;
+  }
+  .usuari td {
+    padding: 20px 0px;
+    vertical-align: top;
+  }
+  .usuari tr td:last-child {
+    text-align: right;
+  }
+  .usuari_main h1 {
+    text-align: left;
+    margin-left: 50px;
+  }
+  .moviltablet_usuari_main {
+    display: none;
+  }
+}
+
+form {
+  width: 540px;
+  background: #801713;
+  border-radius: 8px;
+  box-shadow: 0 0 40px -10px #000;
+  margin: calc(50vh - 220px) auto;
+  padding: 20px 30px;
+  max-width: calc(100vw - 40px);
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+  padding-bottom: 20px;
+}
+.register {
+  margin: calc(35vh - 220px) auto;
+}
+form input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  resize: none;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s;
+  border-bottom: 2px solid #bebed2;
+  color: white;
+  font-size: 15px;
+}
+form input:focus {
+  border-bottom: 2px solid #78788c;
+}
+form p:before {
+  content: attr(type);
+  display: block;
+  margin: 45px 8px 0;
+  font-size: 16px;
+  color: white;
+}
+form button {
+  float: right;
+  padding: 8px 12px;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  background: 0;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+form button:hover {
+  background: black;
+}
+form h2 {
+  color: white;
+}
+form span {
+  font-size: 12px;
+  color: red;
+}
+form #usuaridone {
+  color: green;
+  font-size: 20px;
+}
+form > div > a {
+  color: white;
+  font-size: 10px;
+  text-decoration: none;
+  display: block;
+  margin-top: 10px;
+}
+form > div {
+  margin-top: 70px;
+  text-align: right;
+}
+.btnreppc {
+  height: 35px;
+  width: 35px;
+  margin-right: 30px;
+}
+
+.pc > div:first-child > div:nth-child(2) > input:nth-child(2) {
+  height: 40px;
+}
+
+.error{
+  font-weight: bold;
+  color: white;
+}

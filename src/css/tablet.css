@@ -1,0 +1,15 @@
+@media (min-width:700px) and (max-width:1023px){
+    footer{
+        height: 180px;
+    }
+    #repro input:nth-child(2){
+        width: 50px;
+    }
+    #repro > input{
+        width: 35px;
+    }
+    .error{
+        font-weight: bold;
+        color: white;
+    }
+}

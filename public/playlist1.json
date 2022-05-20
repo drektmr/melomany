@@ -1,0 +1,22 @@
+[
+    {"title":"hola1",
+    "artist":"prueba",
+    "img" : "./images/casa.png",
+    "src" : "./music/1.mp3",
+    "time": "1:00:00"
+    },
+    {
+    "title":"hola2",
+    "artist":"prueba2",
+    "img" : "./images/circulo.png",
+    "src" : "./music/2.mp3",
+    "time" : "2:00:00"
+    },
+    {
+    "title":"hola3",
+    "artist":"prueba3",
+    "img" : "./images/facebook.png",
+    "src" : "./music/3.mp3",
+    "time": "4:00:00"
+    }
+]

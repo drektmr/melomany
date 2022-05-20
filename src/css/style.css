@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+body{
+    padding: 0px;
+    margin: 0 auto;
+    max-height: 100%;
+    color: #ffffff;
+    background-color: #000000;
+    font-family: 'Didact Gothic', sans-serif;
+}
+header{
+    display: none;
+}
+aside{
+    display:none;
+}
+
+main{
+    height: 100%;
+}
+footer{
+    position: fixed;
+    bottom: 0;
+    background-color:#1c1c1c;
+    width: 100%;
+    height: 150px;
+    display: grid;
+}
+footer .pc{
+    display: none;
+}
+h1{
+    margin: 0 auto;
+    text-align: center;
+    letter-spacing: 2px;
+}
+h2{
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+img{
+    border-radius: 5px;
+}
+aside ul{
+    width: 70%;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+aside > ul >li:first-child{
+    width: 100%;
+    background-color: #000000;
+    letter-spacing: 3px;
+    line-height: 35px;
+    color: #ffffff;
+    font-weight: bold;
+}
+aside ul > li{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #151515;
+}
+aside > ul >li:last-child{
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+#playlists{
+    display: none;
+}
+#playlist{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+#playlist  div{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#playlist div img{
+    width: 90%;
+    margin: 0 auto;
+}
+#playlist div input{
+    width: 40%;
+    margin: 0 auto;
+}
+#listarepro #playlist2{
+    display: none;
+}
+
+
+#listarepro{
+    width:95%;
+    margin:0 auto;
+    background-color: #1c1c1c;
+    margin-top:30px;
+    padding-bottom:30px;
+    border-radius: 5px;
+}
+#listarepro p{
+    margin-left: 15%;
+    font-size: 12px;
+    border-right: 2px solid #1c1c1c;
+}
+#listarepro p:last-child{
+    border:none;
+}
+#listarepro div{
+    display: grid;
+    grid-template-columns: 10% 40% 25% 25%;
+    width:90%;
+    margin:0 auto;
+    background-color: #000000;
+    margin-top: 3px;
+    border-radius: 5px;
+    align-items: center;
+}
+.songs{
+    cursor: pointer;
+}
+#listarepro div:nth-child(2), #listarepro div:first-child{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: #1c1c1c;
+    margin-top:30px;
+}
+.moviltablet .reproductor{
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+#listarepro > div:nth-child(2) > p{
+    font-size: 12px;
+}
+.moviltablet{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 40% 50%;
+    align-items: center;
+}
+.moviltablet div{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.moviltablet > div:nth-child(2), .moviltablet > div:nth-child(3){
+    border-right: 1px solid #811713;
+    height: 75%;
+}
+.moviltablet input{
+    width:50px;
+    margin: 0 auto;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns: 30% 1fr;
+}
+.reproductor div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#repro{
+    align-items: center;
+    flex-direction: row;
+}
+#repro > input{
+    width: 15%;
+    margin-left: 3%;
+    height: auto;
+}
+#repro > input[type=image]:nth-child(1){
+    margin-left: 15%;
+}
+#repro input:nth-child(2){
+    width: 27%;
+}
+.reproductor img{
+    height: 90%;
+    margin:10px 10px;
+}
+.moviltablet_usuari_main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.moviltablet_usuari_main img{
+    width: 55%;
+    border-radius: 50%;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+.moviltablet_usuari_main h2{
+    letter-spacing: 5px;
+    color: #801713;
+}
+.usuari{
+    width: 90%;
+    font-size: 17px;
+}
+.usuari p{
+    text-align: center;
+    letter-spacing: 3px;
+}
+.usuari p:nth-child(2n+1){
+    color:#801713;
+    font-weight: bold;
+}
+.usuari_main h1{
+    text-align: center;
+    color: #801713;
+    font-weight: lighter;
+    font-size: 60px;
+}   
+#usuari_main_info{
+    width:87%;
+    margin:0 auto;
+    background-color: #1c1c1c;
+    margin-top:30px;
+    padding-bottom:10px;
+    border-radius: 5px;
+    padding: 3%;
+}
+#usuari_main_info p{
+    text-align: justify;
+    font-size: 18px;
+}
+.error{
+    font-weight: bold;
+    color: white;
+}
