@@ -3,27 +3,65 @@ import SongsContext from '../context/SongsContext';
 import numIdContext from '../context/numIdContext';
 import isPlayingContext from '../context/isPlayingContext';
 import audioContext from '../context/audioContext';
+import UserContext from "../context/UserContext";
+import PlaylistsContext from "../context/PlaylistsContext";
+import CurrentPlaylistContext from "../context/CurrentPlaylistContext";
 
 function Main(){
-    
+    const {userLogged} = useContext(UserContext);
+    const {playlists,setPlaylists} = useContext(PlaylistsContext);
+    const {currentPlaylist,setCurrentPlaylist} = useContext(CurrentPlaylistContext);
     const {songs,setSongs} = useContext(SongsContext);
     const {num,setNum} = useContext(numIdContext);
     const {isPlaying,setIsPlaying} = useContext(isPlayingContext);
     const audio = useContext(audioContext);
-  
+
+    const getSongs = (id) =>{
+        fetch("http://192.168.25.5:8080/songs", {
+            method: "post",
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },body: JSON.stringify({playlistID:id})
+        })
+            .then(response => response.json()
+            )
+            .then((data)=>{
+                if (data[0].name) {
+                    setSongs(data);
+                }
+            })
+    }
+    const changePlaylist = (playlist) =>{
+        setCurrentPlaylist(playlist);
+    }
+
+    const getPlaylists = () =>{
+        console.log(userLogged.id);
+        fetch("http://192.168.25.5:8080/playlists", {
+            method: "post",
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },body: JSON.stringify({id:userLogged.id})
+        })
+            .then(response => response.json()
+            )
+            .then((data)=>{
+                if (data[0].name) {
+                    setPlaylists(data);
+                    console.log(playlists);
+                }
+            })
+    }
+
     useEffect(()=>{
-        fetch('./playlist1.json')
-        .then(function(response){
-            return response.json();
-        })
-        .then(function(music){
-            setSongs(music);
-        })
-        .catch(function(err) {
-            console.error(err);
-        });
-        },[])
-   
+        getPlaylists();
+        getSongs(1);
+        },[userLogged])
+
    useEffect(() =>{
         if(isPlaying){
             audio.current.play();
@@ -39,39 +77,18 @@ return(
     <main>
     <div id="playlists">
     <h2>Tus playlists más escuchadas...</h2>
-        <div id="morelistened">  
-            <div>
+        <div id="morelistened">
+            {playlists.map((playlist)=>(
                 <div>
-                    <img src="images/prueba1"></img>
+                    <div>
+                        <img src="images/prueba1"></img>
+                    </div>
+                    <div>
+                      <p onClick={changePlaylist(playlist)}>{playlist.name}</p>
+                    </div>
                 </div>
-                <div>
-                  <p>Verano hola que ase</p>
-                </div>  
-            </div>
-            <div>
-                <div>
-                    <img src="images/prueba1"></img>
-                </div>
-                <div>
-                    <p>Vera2no</p>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <img src="images/prueba1"></img>
-                </div>
-                <div>
-                    <p>Veran3o</p>
-                </div>
-            </div>
-            <div>
-                <div>
-                    <img src="images/prueba1"></img>
-                </div>
-                <div>
-                    <p>Veran4o</p>
-                </div>
-            </div>
+            ))
+            }
         </div>
     </div>
     <div id="playlist">
@@ -85,7 +102,7 @@ return(
         <div id="playlist2">
             <div><img src="images/prueba1"></img></div>
             <div>
-                <h1>Top 50 Mundial 2021</h1>
+                <h1>{currentPlaylist.name}</h1>
                 {<input type="image" src="images/playbutton.png" onClick={() => {setNum(0); setIsPlaying(true)}}></input>}
             </div>
         </div>

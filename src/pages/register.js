@@ -97,7 +97,6 @@ function Register(){
         if(name==="confPassword"){
             updateError({password: msg});
         }else{
-
             updateError({[name]: msg})
         }
     }

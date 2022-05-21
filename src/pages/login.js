@@ -4,8 +4,8 @@ import UserContext from "./context/UserContext";
 function Login(){
     const navigation = useNavigate();
     const {userLogged,setUserLogged} = useContext(UserContext);
-/*    const [email, setEmail] = useState();
-    const [password, setPassword] = useState();*/
+    /*    const [email, setEmail] = useState();
+        const [password, setPassword] = useState();*/
     const initialError = {email: "", password: ""};
     const [error, updateError] = useReducer(
         (error, updates) => ({
@@ -23,7 +23,7 @@ function Login(){
             if (element.type !== "submit"){ return validation(element);}
         })
         if (!error.email && !error.password) {
-            fetch("http://192.168.25.4:8080/users/loginUser", {
+            fetch("http://192.168.25.5:8080/users/loginUser", {
                 method: "post",
                 mode: 'cors',
                 headers: {
@@ -64,9 +64,9 @@ function Login(){
                 <h2>LOGIN</h2>
 
                 <p type="Email:"><input type="text" placeholder="Correo electrónico" name="email"></input></p>
-                    <p className="red">{error.email}</p>
+                <p className="red">{error.email}</p>
                 <p type="Password:"><input type="password" placeholder="Escribe tu contraseña" name="password"></input></p>
-                    <p className="red">{error.password}</p>
+                <p className="red">{error.password}</p>
                 <input name="sendLogin" type="submit" value={"Iniciar sesión"}/>
                 <div>
                     <NavLink to="/register">No tienes una cuenta? Registrate </NavLink>
