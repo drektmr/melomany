@@ -1,5 +1,9 @@
 import {createContext} from "react";
 
-const CurrentPlaylistContext = createContext(null);
+/**
+ * Contexto donde almacenamos la lista de producción desde donde se reproducirán las canciones
+ * @type {React.Context<*[]>}
+ */
+const CurrentPlaylistContext = createContext([]);
 
 export default CurrentPlaylistContext;

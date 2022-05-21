@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect} from "react";
 import numIdContext from "../../context/numIdContext";
 import SongsContext from "../../context/SongsContext";
 import audioContext from "../../context/audioContext";
@@ -35,8 +35,10 @@ function Reproductor() {
   useEffect(() => {
     if (isPlaying) {
       audio.current.play();
+      console.log("rula");
     } else {
       audio.current.pause();
+      console.log("no rula");
     }
   });
 
@@ -63,18 +65,21 @@ function Reproductor() {
             className="btnreppc"
             onClick={() => SkipSong(false)}
           ></input>
-          <input
+          {!isPlaying?<input
             type="image"
             src="images/playbutton.png"
             className="btnreppc"
             onClick={() => {
-              if (isPlaying) {
-                setIsPlaying(false);
-              } else {
                 setIsPlaying(true);
-              }
             }}
-          ></input>
+          ></input>:<input
+              type="image"
+              src="images/playpause.png"
+              className="btnreppc"
+              onClick={() => {
+                  setIsPlaying(false);
+              }}
+          ></input>}
           <input
             type="image"
             src="images/nextSong.png"

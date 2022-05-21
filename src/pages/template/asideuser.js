@@ -1,8 +1,14 @@
 import {useContext} from "react";
 import UserContext from "../context/UserContext";
-import user from "../user";
 
 function Asideuser(){
+    const {userLogged} = useContext(UserContext);
+
+    /**
+     * Función para calcular la edad mediante una fecha de nacimiento
+     * @param fecha
+     * @returns {number}
+     */
     function calcularEdad(fecha) {
         var hoy = new Date();
         var cumpleanos = new Date(fecha);
@@ -15,7 +21,7 @@ function Asideuser(){
 
         return edad;
     }
-    const {userLogged} = useContext(UserContext);
+
     return(
     <aside class="perfil">
     <img id="usuario" src="images/prueba1"></img>

@@ -190,8 +190,11 @@
     align-items: center;
     justify-content: flex-end;
   }
-  footer > div.pc > div:nth-child(2) > div:nth-child(3) > img {
+  footer > div.pc > div:nth-child(2) > div:nth-child(3) > a >img {
     width: 50px;
+    margin-right: 20%;
+  }
+  footer > div.pc > div:nth-child(2) > div:nth-child(3) > a {
     margin-right: 10%;
   }
   footer
@@ -202,7 +205,7 @@
     > img {
     border-radius: 0%;
   }
-  footer > div.pc > div:nth-child(2) > div:nth-child(2) > img {
+  footer > div.pc > div:nth-child(2) > div:nth-child(2) > a > img {
     height: 80%;
   }
   .pc > div:first-child > div:first-child{

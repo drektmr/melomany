@@ -1,6 +1,8 @@
 import { createContext } from "react";
-// Crear el context que s'importarà en els diferents components
-// S'inicialitza a null
+/**
+ * Contexto donde almacenaremos los datos del usuario
+ * @type {React.Context<null>}
+ */
 const UserContext = createContext(null);
 
 export default UserContext;

@@ -1,12 +1,19 @@
 import { NavLink,useNavigate} from 'react-router-dom';
-import React, {useState, useContext, useReducer, useEffect} from "react";
+import {useContext, useReducer} from "react";
 import UserContext from "./context/UserContext";
+
 function Login(){
     const navigation = useNavigate();
-    const {userLogged,setUserLogged} = useContext(UserContext);
-    /*    const [email, setEmail] = useState();
-        const [password, setPassword] = useState();*/
+    const {setUserLogged} = useContext(UserContext);
+    /**
+     * Valores iniciales de los errores del login
+     * @type {{password: string, email: string}}
+     */
     const initialError = {email: "", password: ""};
+
+    /**
+     * Constante donde almacenaremos los errores de login mediante useReducer
+     */
     const [error, updateError] = useReducer(
         (error, updates) => ({
             ...error,
@@ -15,6 +22,10 @@ function Login(){
         initialError
     );
 
+    /**
+     * Función donde paramos el envio de un formulario de login y comprobamos la información y de ser correcta obtenemos los datos del usuario
+     * @param e
+     */
     const handleSubmit = (e) => {
         e.preventDefault();
         let user={};
@@ -34,13 +45,18 @@ function Login(){
                 .then(response => response.json()
                 )
                 .then((data)=>{
-                    if (data["email"]) {
-                        console.log(data.dateBirth);
-                        setUserLogged(data);
-                    }
+                    setUserLogged(data);
+                    localStorage.setItem('user', JSON.stringify(data));
+                    navigation("/user", {replace: true});
                 })
         }
     }
+
+    /**
+     * Función para validar los datos del usuario
+     * @param target
+     */
+
     const validation = (target) => {
         // Desestructuració de name, type i value de target
         let name = target.name;
@@ -56,10 +72,9 @@ function Login(){
         }
         updateError({[name]: msg});
     }
+
     return(
         <>
-            {console.log(userLogged)}
-            {userLogged.length!==0?navigation("/user", {replace: true}):""}
             <form className="form" onSubmit={handleSubmit} noValidate>
                 <h2>LOGIN</h2>
 

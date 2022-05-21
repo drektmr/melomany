@@ -1,11 +1,10 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
-// import Header from './pages/template/header';
+import React, {useState} from 'react';
 import Login from './pages/login';
 import Register from './pages/register';
 import Playlist from './pages/playlist';
 import User from './pages/user';
-import {Route, Routes, BrowserRouter as Router} from "react-router-dom";
+import {Route, Routes, BrowserRouter as Router, Navigate} from "react-router-dom";
 import SongsContext from './pages/context/SongsContext';
 import audioContext from './pages/context/audioContext';
 import numIdContext from './pages/context/numIdContext';
@@ -13,7 +12,6 @@ import isPlayingContext from './pages/context/isPlayingContext';
 import UserContext from "./pages/context/UserContext";
 import PlaylistsContext from "./pages/context/PlaylistsContext";
 import CurrentPlaylistContext from "./pages/context/CurrentPlaylistContext";
-import Main from "./pages/template/main";
 
 
 function App() {
@@ -35,10 +33,10 @@ function App() {
                                     <isPlayingContext.Provider value={{isPlaying, setIsPlaying}}>
                                         <Router>
                                             <Routes>
-                                                <Route path="/" element={<Playlist/>}/>
-                                                <Route path="/login" element={<Login/>}/>
-                                                <Route path="/register" element={<Register/>}/>
-                                                <Route path="/user" element={<User/>}/>
+                                                <Route path="/" element={userLogged.length===0?(<Login/>):(<Navigate replace to="/user"/>)}/>
+                                                <Route path="/main" element={userLogged.length!==0?(<Playlist/>):(<Navigate replace to="/"/>)}/>
+                                                <Route path="/register" element={userLogged.length===0?(<Register/>):(<Navigate replace to="/user"/>)}/>
+                                                <Route path="/user" element={userLogged.length!==0?(<User/>):(<Navigate replace to="/"/>)}/>
                                             </Routes>
                                         </Router>
                                     </isPlayingContext.Provider>

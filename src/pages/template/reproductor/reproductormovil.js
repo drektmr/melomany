@@ -62,7 +62,7 @@ function Reproductormovil() {
           ></input>
         </div>
         <div>
-            <p>{songs.length != 0 ? songs[num].title : null} - {songs.length != 0 ? songs[num].artist : null}</p>
+            <p>{songs.length != 0 ? songs[num].title+" - ": null}{songs.length != 0 ? songs[num].artist : null}</p>
         </div>
       </div>
     </>
