@@ -1,6 +1,10 @@
 import {useContext} from "react";
 import UserContext from "../context/UserContext";
 
+/**
+* Este componente es el aside de nuestra página, se verá en la página User
+*/
+
 function Asideuser(){
     const {userLogged} = useContext(UserContext);
 
