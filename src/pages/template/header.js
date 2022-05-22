@@ -1,6 +1,9 @@
 import {NavLink, useNavigate} from 'react-router-dom';
 import {useContext} from "react";
 import UserContext from "../context/UserContext";
+/**
+* Este es el header de nuestra página web
+*/
 function Header(){
  const {userLogged,setUserLogged} = useContext(UserContext);
  const navigation = useNavigate();
