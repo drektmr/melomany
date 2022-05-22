@@ -10,6 +10,11 @@ function Reproductor() {
   const audio = useContext(audioContext);
   const { isPlaying, setIsPlaying } = useContext(isPlayingContext);
 
+  /**
+   * Función que nos permitirá pasar de canción o volver a la anterior
+   * @param forwards
+   * @constructor
+   */
   const SkipSong = (forwards = true) => {
     if (forwards) {
       setNum(() => {

@@ -4,6 +4,9 @@ import UserContext from "../context/UserContext";
 function Header(){
  const {userLogged,setUserLogged} = useContext(UserContext);
  const navigation = useNavigate();
+ /**
+  * Función para cerrar sesión, eliminando el usuario en el localStorage y poniendo a cero el UserContext
+  */
  const cerrarSession = ()=>{
   //Ponemos a cero el contexto
   setUserLogged([]);
