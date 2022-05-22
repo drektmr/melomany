@@ -1,15 +1,15 @@
 import { NavLink } from 'react-router-dom';
-import {useContext, useEffect, useReducer, useState} from "react";
+import {useContext, useReducer, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import UserContext from "./context/UserContext";
 function Register(){
     const [password, setPassword] = useState();
-    const {userLogged,setUserLogged} = useContext(UserContext);
+    const {setUserLogged} = useContext(UserContext);
     /**
      * Valor iniciales de los posibles errores
      * @type {{lastName: string, country: string, password: string, name: string, description: string, dateBirth: string, email: string}}
      */
-    const initialError = {name:"", lastName:"" ,email: "", password: "",description: "", dateBirth: "", country:""};
+    const initialError = {name:"", lastName:"" ,email: "", password: "",description: "", dateBirth: "", country: "", login: ""};
 
     /**
      * Constante donde almacenamos los errores con useReducer
@@ -32,7 +32,7 @@ function Register(){
         lastName: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // No puede contener numeros
         email: /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/,
         password: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/, //Debe contener 8 caracteres minimo, 1 mayuscula, 1 minuscula y numeros
-        description: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{1,200}$/,
+        description: /^[a-zA-ZÀ-ÿ\s]{1,250}$/,
         country: /^[a-zA-ZÀ-ÿ\s]{1,40}$/
     };
     /**
@@ -59,8 +59,13 @@ function Register(){
                     return response.json();
                 })
                 .then((data)=>{
-                    console.log(data)
-                    setUserLogged(data);
+                    if(data.error){
+                        updateError({"login": data.error});
+                    }if(data.err){
+                        updateError({"login": data.err});
+                    }else{
+                        setUserLogged(data);
+                    }
                 })
         }
     }
@@ -137,6 +142,7 @@ function Register(){
         <>
             <form className="register" id="main" onSubmit={handleSubmit} noValidate>
                 <h2>REGISTER</h2>
+                <p className="error">{error.login}</p>
                 <p type="Nombre:"><input type="text" id="nomdone" placeholder="Escribe tu nombre" name="name"  onChange={onChange} required></input></p>
                 <p className="errors">{error.name}</p>
                 <p type="Apellido:"><input type="text" id="cognomdone" placeholder="Escribe tu apellido" name="lastName" onChange={onChange} required></input></p>

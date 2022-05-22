@@ -9,7 +9,7 @@ function Login(){
      * Valores iniciales de los errores del login
      * @type {{password: string, email: string}}
      */
-    const initialError = {email: "", password: ""};
+    const initialError = {email: "", password: "", login: ""};
 
     /**
      * Constante donde almacenaremos los errores de login mediante useReducer
@@ -45,9 +45,13 @@ function Login(){
                 .then(response => response.json()
                 )
                 .then((data)=>{
-                    setUserLogged(data);
-                    localStorage.setItem('user', JSON.stringify(data));
-                    navigation("/user", {replace: true});
+                    if(data.error){
+                        updateError({["login"]: "La información es incorrecta"});
+                    }else{
+                        setUserLogged(data);
+                        localStorage.setItem('user', JSON.stringify(data));
+                        navigation("/user", {replace: true});
+                    }
                 })
         }
     }
@@ -77,11 +81,11 @@ function Login(){
         <>
             <form className="form" onSubmit={handleSubmit} noValidate>
                 <h2>LOGIN</h2>
-
+                <p className="error">{error.login}</p>
                 <p type="Email:"><input type="text" placeholder="Correo electrónico" name="email"></input></p>
-                <p className="red">{error.email}</p>
+                <p className="error">{error.email}</p>
                 <p type="Password:"><input type="password" placeholder="Escribe tu contraseña" name="password"></input></p>
-                <p className="red">{error.password}</p>
+                <p className="error">{error.password}</p>
                 <input name="sendLogin" type="submit" value={"Iniciar sesión"}/>
                 <div>
                     <NavLink to="/register">No tienes una cuenta? Registrate </NavLink>
