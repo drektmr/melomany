@@ -1,5 +1,8 @@
 import {useContext} from "react";
 import UserContext from "../context/UserContext";
+/**
+* En esta parte tendremos la información del usuario
+*/
 function Mainuser(){
     const {userLogged} = useContext(UserContext);
 
