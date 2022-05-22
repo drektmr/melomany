@@ -65,6 +65,8 @@ function Register(){
                         updateError({"login": data.err});
                     }else{
                         setUserLogged(data);
+                        localStorage.setItem('user', JSON.stringify(data));
+                        navigation("/user", {replace: true});
                     }
                 })
         }
