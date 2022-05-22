@@ -36,14 +36,14 @@ function Reproductor() {
       });
     }
   };
-
+  /**
+   * Con este useEffect podemos pausar o reproducir la canción
+   */
   useEffect(() => {
     if (isPlaying) {
       audio.current.play();
-      console.log("rula");
     } else {
       audio.current.pause();
-      console.log("no rula");
     }
   });
 
