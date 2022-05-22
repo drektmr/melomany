@@ -7,7 +7,7 @@ import UserContext from "../context/UserContext";
 import PlaylistsContext from "../context/PlaylistsContext";
 import CurrentPlaylistContext from "../context/CurrentPlaylistContext";
 /**
-* Página main, aquí juntaremos la mayoría de páginas creadas anteriormente
+* Página main, aquí tenemos la información de nuestra Playlist
 */
 function Main() {
     const {userLogged} = useContext(UserContext);
