@@ -139,6 +139,58 @@ aside > ul >li:last-child{
 #listarepro > div:nth-child(2) > p{
     font-size: 12px;
 }
+/**/
+#listadoPlaylists #playlist2{
+    display: none;
+}
+#listamovil{
+    margin-left: 5%;
+    font-size: 30px;
+}
+
+ #listadoPlaylists > h3{
+    margin-left: 5%;
+}
+
+#listadoPlaylists{
+    width:95%;
+    margin:0 auto;
+    background-color: #1c1c1c;
+  /*  margin-top:30px; */
+    padding-bottom:30px;
+    border-radius: 5px;
+}
+#listadoPlaylists p{
+    margin-left: 15%;
+    font-size: 12px;
+    border-right: 2px solid #1c1c1c;
+}
+#listadoPlaylists p:last-child{
+    border:none;
+}
+#listadoPlaylists div{
+    /*display: grid;
+    grid-template-columns: 10% 40% 25% 25%;*/
+    height: 50px;
+    width:90%;
+    margin:0 auto;
+    background-color: #000000;
+    margin-top: 3px;
+    border-radius: 5px;
+    align-items: center;
+}
+.songs{
+    cursor: pointer;
+}
+
+.moviltablet .reproductor{
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+/**/
 .moviltablet{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

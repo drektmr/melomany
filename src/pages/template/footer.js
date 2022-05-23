@@ -1,25 +1,37 @@
-import { NavLink } from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import Reproductor from './reproductor/reproductor';
 import Reproductormovil from './reproductor/reproductormovil';
 import isPlayingContext from "../context/isPlayingContext";
-import {useContext} from "react";
+import {useContext, } from "react";
+import UserContext from "../context/UserContext";
 /**
 * Este es el footer de nuestra página se podrá ver en playlist, en ella estarán ubicados los menús de reproducción
- * {isPlaying?<Reproductormovil />:<></>}
+ * {isPlaying?<Reproductormovil />:footer.current.style.height=150}
 */
 function Footer(){
     const {isPlaying} = useContext(isPlayingContext);
+    const navigation = useNavigate();
+    const {setUserLogged} = useContext(UserContext);
+
     return(
-        <footer>
-       
-        <div className="moviltablet">
-            <Reproductormovil />
-            <div> <input type="image" src="images/search.png"></input></div>
+        <footer >
+            <div className="moviltablet">
+                <Reproductormovil />
+            <NavLink to="/" onClick={()=>{
+                //Ponemos a cero el contexto
+                setUserLogged([]);
+
+                //Eliminamos los datos del usuario del localStorage
+                localStorage.removeItem('user');
+
+                //Reedirigimos a la página principal
+                navigation("/", {replace: true});
+            }}><div> <input type="image" src="images/logout.png"></input></div></NavLink>
             <NavLink to="/user"><div><input type="image" src="images/casa.png"></input></div></NavLink>
             <NavLink to="/main"><div><input type="image" src="images/library.png"></input></div></NavLink>
         </div>
             <div className="pc">
-            <Reproductor />
+              <Reproductor/>
             <div>
                 <div>
                     <p>Contacto</p>

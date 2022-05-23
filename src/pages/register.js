@@ -163,7 +163,7 @@ function Register(){
                 <p className="errors">{error.description}</p>
                 <p type="Introduce tu país:"><input type="text" id="country" placeholder="Introduce tu país" name="country" required></input></p>
                 <p className="errors">{error.country}</p>
-                <input name="sendLogin" type="submit"/>
+                <input className={"buttonform"} name="sendLogin" type="submit"/>
                 <div>
                     <NavLink to="/">Ya tienes una cuenta? Iniciar Sesión </NavLink>
                 </div>

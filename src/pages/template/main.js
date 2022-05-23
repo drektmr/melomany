@@ -154,6 +154,19 @@ function Main() {
                 })}
 
             </div>
+            <h2 id={"listamovil"}>Listas de reproducción</h2>
+            <div key="listadoPlaylists" id="listadoPlaylists">
+
+                <h3>Nombre</h3>
+                {playlists && playlists.length > 0 && playlists.map((element, i) => {
+                    return <div id={"playlist_" + element.id} className='songs' onClick={() => {
+                        setCurrentPlaylist(element);
+                    }}>
+                        <p>{element.name}</p>
+                    </div>
+                })}
+
+            </div>
         </main>
     )
 }

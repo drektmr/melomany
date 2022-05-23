@@ -35,6 +35,9 @@
   h2 {
     font-size: 24px;
   }
+  h3{
+    font-size: 18px;
+  }
   header > input[type="text"] {
     margin-top: 40px;
     margin-left: 200px;
@@ -134,6 +137,36 @@
   #listarepro > div:nth-child(2) > p {
     font-size: 24px;
   }
+
+  /**/
+  #listamovil{
+    display: none;
+  }
+  #listadoPlaylists{
+    display:none;
+  }
+  #listadoPlaylists #playlist2 {
+    display: flex;
+  }
+  #listadoPlaylists #playlist2 div {
+    display: flex;
+    background-color: #1c1c1c;
+  }
+  #listadoPlaylists #playlist2 img {
+    width: 25%;
+  }
+  #playlist2 > div:nth-child(2) {
+    justify-content: flex-end;
+  }
+
+  #listadoPlaylists #playlist2 input {
+    width: 10%;
+  }
+  #listadoPlaylists > div:nth-child(2) > p {
+    font-size: 24px;
+  }
+  /**/
+
   .moviltablet {
     display: none;
   }
@@ -269,7 +302,7 @@ form p:before {
   font-size: 16px;
   color: white;
 }
-form button {
+.buttonform {
   float: right;
   padding: 8px 12px;
   font-family: "Montserrat", sans-serif;
@@ -278,6 +311,7 @@ form button {
   color: white;
   cursor: pointer;
   transition: all 0.3s;
+  margin-bottom:15px;
 }
 form button:hover {
   background: black;

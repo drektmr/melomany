@@ -88,7 +88,7 @@ function Login(){
                 <p className="error">{error.email}</p>
                 <p type="Password:"><input type="password" placeholder="Escribe tu contraseña" name="password"></input></p>
                 <p className="error">{error.password}</p>
-                <input name="sendLogin" type="submit" value={"Iniciar sesión"}/>
+                <input className={"buttonform"} name="sendLogin" type="submit" value={"Iniciar sesión"}/>
                 <div>
                     <NavLink to="/register">No tienes una cuenta? Registrate </NavLink>
                 </div>
