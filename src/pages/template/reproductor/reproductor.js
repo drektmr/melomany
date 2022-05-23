@@ -2,10 +2,8 @@ import React, { useContext, useEffect, useRef } from "react";
 import numIdContext from "../../context/numIdContext";
 import SongsContext from "../../context/SongsContext";
 import isPlayingContext from "../../context/isPlayingContext";
-import CurrentPlaylistContext from "../../context/CurrentPlaylistContext";
 
 function Reproductor() {
-  const {currentPlaylist} = useContext(CurrentPlaylistContext);
   const { songs } = useContext(SongsContext);
   const { num, setNum } = useContext(numIdContext);
   const { isPlaying, setIsPlaying } = useContext(isPlayingContext);

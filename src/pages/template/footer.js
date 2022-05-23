@@ -1,10 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import Reproductor from './reproductor/reproductor';
 import Reproductormovil from './reproductor/reproductormovil';
+import isPlayingContext from "../context/isPlayingContext";
+import {useContext} from "react";
 /**
 * Este es el footer de nuestra página se podrá ver en playlist, en ella estarán ubicados los menús de reproducción
+ * {isPlaying?<Reproductormovil />:<></>}
 */
 function Footer(){
+    const {isPlaying} = useContext(isPlayingContext);
     return(
         <footer>
        
