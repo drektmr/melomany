@@ -43,7 +43,7 @@ function Reproductor() {
   },[isPlaying] || [songs]);
 
   function setProgress() {
-    let percentage = (audio.current.currentTime / audio.current.duration) * 100;
+    let percentage = audio.current.duration?(audio.current.currentTime / audio.current.duration) * 100:0;
     document.querySelector(".progress").style.width = percentage + "%";
   }
 
@@ -59,20 +59,20 @@ function Reproductor() {
           <p>{songs.length != 0 ? songs[num].artist : null}</p>
         </div>
       </div>
-      <div class="music-player-container">
-        <div class="controls-music-container">
-          <div class="progress-song-container">
-            <div class="progress-bar">
-              <span class="progress"></span>
+      <div className="music-player-container">
+        <div className="controls-music-container">
+          <div className="progress-song-container">
+            <div className="progress-bar">
+              <span className="progress"></span>
             </div>
           </div>
-          <div class="time-container">
+          <div className="time-container">
             <span
-              class="time-left"
+                className="time-left"
               id="CurrentSongTime"
               ref={currentTime}
             ></span>
-            <span class="time-left" id="Songlength" ref={songLength}></span>
+            <span className="time-left" id="Songlength" ref={songLength}></span>
           </div>
         </div>
         <audio
@@ -81,7 +81,7 @@ function Reproductor() {
           src={songs.length != 0 ? songs[num].src : null}
           ref={audio}
         ></audio>
-        <div class="main-song-controls">
+        <div className="main-song-controls">
           <input
             type="image"
             src="images/previousSong.png"

@@ -78,34 +78,19 @@ function Main() {
         getSongs(currentPlaylist.id);
     }, [currentPlaylist])
 
-    /**
-     * useEffect para ir reproduciendo las canciones
-     */
-    /*useEffect(() => {
-        if (isPlaying) {
-            audio.current.play();
-            console.log("rula");
-        } else {
-            audio.current.pause();
-            console.log("no rula")
-        }
-    }, [isPlaying]);
-*/
-
     return (
         <main>
             <div id="playlists">
                 <h2>Tus playlists más escuchadas...</h2>
                 <div key="morelistened" id="morelistened">
                     {playlists.map((playlist) => {
-                        console.log(playlist);
-                        return <div>
+                        return <div key={"box_" + playlist.id}  onClick={() => {
+                            setCurrentPlaylist(playlist)
+                        }}>
                             <div>
                                 <img src={playlist.image}></img>
                             </div>
-                            <div key={"box_" + playlist.id} onClick={() => {
-                                setCurrentPlaylist(playlist)
-                            }}>
+                            <div>
                                 <p>{playlist.name}</p>
                             </div>
                         </div>
@@ -117,7 +102,7 @@ function Main() {
                 <div><img src={currentPlaylist.length !== 0 ? currentPlaylist.image : "./images/prueba1"}/></div>
                 <div>
                     <h1>{currentPlaylist.length !== 0 ? currentPlaylist.name : "Viva el verano"}</h1>
-                    <input type="image" src="images/playbutton.png" onClick={() => {
+                    <input key="playMain" type="image" src="images/playbutton.png" onClick={() => {
                         setNum(0);
                         setIsPlaying(true)
                     }}></input>
@@ -128,7 +113,7 @@ function Main() {
                     <div><img src={currentPlaylist.image}></img></div>
                     <div>
                         <h1>{currentPlaylist.length !== 0 ? currentPlaylist.name : "Viva el verano"}</h1>
-                        {<input type="image" src="images/playbutton.png" onClick={() => {
+                        {<input key="play" type="image" src="images/playbutton.png" onClick={() => {
                             setNum(0);
                             setIsPlaying(true)
                         }}></input>}
@@ -142,7 +127,7 @@ function Main() {
                 </div>
 
                 {songs && songs.length > 0 && songs.map((element, i) => {
-                    return <div id={"song_" + element.id} className='songs' onClick={() => {
+                    return <div id={"song_" + element.id} key={"song_" + element.id} className='songs' onClick={() => {
                         setNum(i);
                         setIsPlaying(true)
                     }}>
@@ -159,7 +144,7 @@ function Main() {
 
                 <h3>Nombre</h3>
                 {playlists && playlists.length > 0 && playlists.map((element, i) => {
-                    return <div id={"playlist_" + element.id} className='songs' onClick={() => {
+                    return <div id={"playlist_" + element.id} key={"playlist_" + element.id} className='songs' onClick={() => {
                         setCurrentPlaylist(element);
                     }}>
                         <p>{element.name}</p>

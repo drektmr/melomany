@@ -25,6 +25,9 @@ function Mainuser(){
     return(
         <main className="usuari_main">
         <div className="moviltablet_usuari_main">
+            {userLogged.image?<img id="usuario" src={userLogged.image}/>:
+            <img id="usuario" src="images/prueba1"/>}
+
             <div className="usuari">
                 <p>Nombre completo</p>
                 <p>{userLogged.name+" "+userLogged.lastName}</p>

@@ -27,9 +27,10 @@ function Asideuser(){
     }
 
     return(
-    <aside class="perfil">
+    <aside className="perfil">
     <img id="usuario" src="images/prueba1"></img>
-        <table class="usuari">
+        <table className="usuari">
+            <tbody>
             <tr>
                 <td>Nombre completo</td>
                 <td>{userLogged.name+" "+userLogged.lastName}</td>
@@ -46,6 +47,7 @@ function Asideuser(){
                 <td>País</td>
                 <td>{userLogged.country?userLogged.country:"Aquí indicas tu país"}</td>
             </tr>
+            </tbody>
         </table>
     </aside>
 )
