@@ -90,6 +90,7 @@
     width: 20%;
     margin-right: 6.6%;
     align-items: center;
+    cursor:pointer;
   }
   #morelistened > div:last-child {
     margin: 0;
@@ -306,7 +307,7 @@ form > div {
 .btnreppc {
   height: 35px;
   width: 35px;
-  margin-right: 30px;
+  margin: 0px 20px;
 }
 
 .pc > div:first-child > div:nth-child(2) > input:nth-child(2) {
@@ -451,4 +452,10 @@ audio{
 .error{
   font-weight: bold;
   color: white;
+}
+
+#root > header > button{
+  cursor: pointer;
+  color: white;
+  margin-right: 50px;
 }

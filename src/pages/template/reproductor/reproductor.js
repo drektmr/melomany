@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useRef } from "react";
 import numIdContext from "../../context/numIdContext";
 import SongsContext from "../../context/SongsContext";
 import isPlayingContext from "../../context/isPlayingContext";
+import CurrentPlaylistContext from "../../context/CurrentPlaylistContext";
 
 function Reproductor() {
+  const {currentPlaylist} = useContext(CurrentPlaylistContext);
   const { songs } = useContext(SongsContext);
   const { num, setNum } = useContext(numIdContext);
   const { isPlaying, setIsPlaying } = useContext(isPlayingContext);
@@ -11,11 +13,6 @@ function Reproductor() {
   const songLength = useRef();
   const currentTime = useRef();
 
-  /**
-   * Función que nos permitirá pasar de canción o volver a la anterior
-   * @param forwards
-   * @constructor
-   */
   const SkipSong = (forwards = true) => {
     if (forwards) {
       setNum(() => {
@@ -45,7 +42,7 @@ function Reproductor() {
     } else {
       audio.current.pause();
     }
-  });
+  },[isPlaying] || [songs]);
 
   function setProgress() {
     let percentage = (audio.current.currentTime / audio.current.duration) * 100;
@@ -57,7 +54,7 @@ function Reproductor() {
     <div>
       <div>
         <div>
-          <img src="images/prueba1"></img>
+          {songs.length != 0 ?<img src={songs[num].image} alt={"imageSong"}/> : <></>}
         </div>
         <div>
           <b>{songs.length != 0 ? songs[num].title : null}</b>
@@ -93,21 +90,22 @@ function Reproductor() {
             className="btnreppc, icon"
             onClick={() => SkipSong(false)}
           ></input>
-          {!isPlaying?<input
-              type="image"
-              src="images/playbutton.png"
-              className="btnreppc"
-              onClick={() => {
-                setIsPlaying(true);
-              }}
-          ></input>:<input
-              type="image"
-              src="images/playpause.png"
-              className="btnreppc"
-              onClick={() => {
-                setIsPlaying(false);
-              }}
-          ></input>}
+          {!isPlaying?
+              <input
+                  className="btnreppc, icon"
+                  type="image"
+                  src="images/playbutton.png"
+                  onClick={() => {
+                    setIsPlaying(true);
+                  }}
+              ></input>:<input
+                  className="btnreppc, icon"
+                  type="image"
+                  src="images/playpause.png"
+                  onClick={() => {
+                    setIsPlaying(false);
+                  }}
+              ></input>}
           <input
             type="image"
             src="images/nextSong.png"

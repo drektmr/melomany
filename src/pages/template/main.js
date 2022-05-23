@@ -98,9 +98,10 @@ function Main() {
                 <h2>Tus playlists más escuchadas...</h2>
                 <div key="morelistened" id="morelistened">
                     {playlists.map((playlist) => {
+                        console.log(playlist);
                         return <div>
                             <div>
-                                <img src="images/prueba1"></img>
+                                <img src={playlist.image}></img>
                             </div>
                             <div key={"box_" + playlist.id} onClick={() => {
                                 setCurrentPlaylist(playlist)
@@ -113,7 +114,7 @@ function Main() {
                 </div>
             </div>
             <div id="playlist">
-                <div><img src="images/prueba1"></img></div>
+                <div><img src={currentPlaylist.length !== 0 ? currentPlaylist.image : "./images/prueba1"}/></div>
                 <div>
                     <h1>{currentPlaylist.length !== 0 ? currentPlaylist.name : "Viva el verano"}</h1>
                     <input type="image" src="images/playbutton.png" onClick={() => {
@@ -124,7 +125,7 @@ function Main() {
             </div>
             <div key="listarepro" id="listarepro">
                 <div key={"playlist2"} id="playlist2">
-                    <div><img src="images/prueba1"></img></div>
+                    <div><img src={currentPlaylist.image}></img></div>
                     <div>
                         <h1>{currentPlaylist.length !== 0 ? currentPlaylist.name : "Viva el verano"}</h1>
                         {<input type="image" src="images/playbutton.png" onClick={() => {
@@ -148,7 +149,7 @@ function Main() {
                         <p>{i + 1}</p>
                         <p>{element.title}</p>
                         <p>{element.artist}</p>
-                        <p>{element.time}</p>
+                        <p>{element.duration}</p>
                     </div>
                 })}
 

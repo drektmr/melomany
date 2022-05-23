@@ -1,10 +1,11 @@
 import './App.css';
 import React, {useState} from 'react';
+import {Helmet} from "react-helmet";
+import {Route, Routes, BrowserRouter as Router, Navigate} from "react-router-dom";
 import Login from './pages/login';
 import Register from './pages/register';
 import Playlist from './pages/playlist';
 import User from './pages/user';
-import {Route, Routes, BrowserRouter as Router, Navigate} from "react-router-dom";
 import SongsContext from './pages/context/SongsContext';
 import audioContext from './pages/context/audioContext';
 import numIdContext from './pages/context/numIdContext';
@@ -12,7 +13,6 @@ import isPlayingContext from './pages/context/isPlayingContext';
 import UserContext from "./pages/context/UserContext";
 import PlaylistsContext from "./pages/context/PlaylistsContext";
 import CurrentPlaylistContext from "./pages/context/CurrentPlaylistContext";
-
 
 function App() {
     const [songs, setSongs] = useState([]);
@@ -24,6 +24,7 @@ function App() {
     const [userLogged, setUserLogged] = useState(JSON.parse(localStorage.getItem('user')) || []);
     return (
         <>
+            <Helmet><title>Melomany</title> </Helmet>
             <UserContext.Provider value={{userLogged, setUserLogged}}>
                 <PlaylistsContext.Provider value={{playlists, setPlaylists}}>
                     <CurrentPlaylistContext.Provider value={{currentPlaylist, setCurrentPlaylist}}>

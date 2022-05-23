@@ -45,6 +45,7 @@ aside ul{
     width: 70%;
     text-transform: uppercase;
     margin-top: 50px;
+    cursor: pointer;
 }
 
 aside > ul >li:first-child{
@@ -54,6 +55,7 @@ aside > ul >li:first-child{
     line-height: 35px;
     color: #ffffff;
     font-weight: bold;
+
 }
 aside ul > li{
 

@@ -47,18 +47,22 @@ function Reproductormovil() {
             src="images/previousSong.png"
             onClick={() => SkipSong(false)}
           ></input>
+            {!isPlaying?
           <input
             className="rep"
             type="image"
             src="images/playbutton.png"
             onClick={() => {
-              if (isPlaying) {
-                setIsPlaying(false);
-              } else {
                 setIsPlaying(true);
-              }
             }}
-          ></input>
+          ></input>:<input
+                    className="rep"
+                    type="image"
+                    src="images/playpause.png"
+                    onClick={() => {
+                        setIsPlaying(false);
+                    }}
+                ></input>}
           <input
             className="rep"
             type="image"

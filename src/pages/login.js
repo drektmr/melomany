@@ -48,7 +48,7 @@ function Login(){
                 )
                 .then((data)=>{
                     if(data.error){
-                        updateError({["login"]: "La información es incorrecta"});
+                        updateError({["login"]: data.error});
                     }else{
                         setUserLogged(data);
                         localStorage.setItem('user', JSON.stringify(data));
