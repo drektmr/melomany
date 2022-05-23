@@ -6,7 +6,9 @@ import audioContext from '../context/audioContext';
 import UserContext from "../context/UserContext";
 import PlaylistsContext from "../context/PlaylistsContext";
 import CurrentPlaylistContext from "../context/CurrentPlaylistContext";
-
+/**
+* Página main, aquí tenemos la información de nuestra Playlist
+*/
 function Main() {
     const {userLogged} = useContext(UserContext);
     const {playlists, setPlaylists} = useContext(PlaylistsContext);

@@ -1,7 +1,9 @@
 import {useContext} from "react";
 import PlaylistsContext from "../context/PlaylistsContext";
 import CurrentPlaylistContext from "../context/CurrentPlaylistContext";
-
+/**
+* Este componente es el aside de nuestra página, se verá en la playlist
+*/
 function Aside(){
   const {playlists} = useContext(PlaylistsContext);
   const {setCurrentPlaylist} = useContext(CurrentPlaylistContext);

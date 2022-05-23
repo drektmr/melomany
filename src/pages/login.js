@@ -1,7 +1,9 @@
 import { NavLink,useNavigate} from 'react-router-dom';
 import {useContext, useReducer} from "react";
 import UserContext from "./context/UserContext";
-
+/**
+* Página en la que haremos el login
+*/
 function Login(){
     const navigation = useNavigate();
     const {setUserLogged} = useContext(UserContext);

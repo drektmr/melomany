@@ -11,6 +11,11 @@ function Reproductor() {
   const songLength = useRef();
   const currentTime = useRef();
 
+  /**
+   * Función que nos permitirá pasar de canción o volver a la anterior
+   * @param forwards
+   * @constructor
+   */
   const SkipSong = (forwards = true) => {
     if (forwards) {
       setNum(() => {

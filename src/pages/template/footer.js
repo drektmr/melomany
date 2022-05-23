@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import Reproductor from './reproductor/reproductor';
 import Reproductormovil from './reproductor/reproductormovil';
-
+/**
+* Este es el footer de nuestra página se podrá ver en playlist, en ella estarán ubicados los menús de reproducción
+*/
 function Footer(){
     return(
         <footer>

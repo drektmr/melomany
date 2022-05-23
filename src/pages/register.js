@@ -2,6 +2,9 @@ import { NavLink } from 'react-router-dom';
 import {useContext, useReducer, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import UserContext from "./context/UserContext";
+/**
+* En esta página tenemos el registro de usuarios
+*/
 function Register(){
     const [password, setPassword] = useState();
     const {setUserLogged} = useContext(UserContext);
