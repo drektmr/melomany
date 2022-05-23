@@ -79,7 +79,7 @@ function Main() {
     /**
      * useEffect para ir reproduciendo las canciones
      */
-    useEffect(() => {
+    /*useEffect(() => {
         if (isPlaying) {
             audio.current.play();
             console.log("rula");
@@ -88,7 +88,7 @@ function Main() {
             console.log("no rula")
         }
     }, [isPlaying]);
-
+*/
 
     return (
         <main>

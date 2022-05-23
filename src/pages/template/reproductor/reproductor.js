@@ -1,20 +1,16 @@
-import { useContext, useEffect} from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import numIdContext from "../../context/numIdContext";
 import SongsContext from "../../context/SongsContext";
-import audioContext from "../../context/audioContext";
 import isPlayingContext from "../../context/isPlayingContext";
 
 function Reproductor() {
   const { songs } = useContext(SongsContext);
   const { num, setNum } = useContext(numIdContext);
-  const audio = useContext(audioContext);
   const { isPlaying, setIsPlaying } = useContext(isPlayingContext);
+  const audio = useRef();
+  const songLength = useRef();
+  const currentTime = useRef();
 
-  /**
-   * Función que nos permitirá pasar de canción o volver a la anterior
-   * @param forwards
-   * @constructor
-   */
   const SkipSong = (forwards = true) => {
     if (forwards) {
       setNum(() => {
@@ -40,58 +36,81 @@ function Reproductor() {
   useEffect(() => {
     if (isPlaying) {
       audio.current.play();
-      console.log("rula");
+      setInterval(setProgress, 1);
     } else {
       audio.current.pause();
-      console.log("no rula");
     }
   });
 
+  function setProgress() {
+    let percentage = (audio.current.currentTime / audio.current.duration) * 100;
+    document.querySelector(".progress").style.width = percentage + "%";
+  }
+
   return (
     <>
+    <div>
       <div>
         <div>
-          <div>
-            <img src="images/prueba1"></img>
-          </div>
-          <div>
-            <audio
-              src={songs.length != 0 ? songs[num].src : null}
-              ref={audio}
-            ></audio>
-            <b>{songs.length != 0 ? songs[num].title : null}</b>
-            <p>{songs.length != 0 ? songs[num].artist : null}</p>
-          </div>
+          <img src="images/prueba1"></img>
         </div>
         <div>
+          <b>{songs.length != 0 ? songs[num].title : null}</b>
+          <p>{songs.length != 0 ? songs[num].artist : null}</p>
+        </div>
+      </div>
+      <div class="music-player-container">
+        <div class="controls-music-container">
+          <div class="progress-song-container">
+            <div class="progress-bar">
+              <span class="progress"></span>
+            </div>
+          </div>
+          <div class="time-container">
+            <span
+              class="time-left"
+              id="CurrentSongTime"
+              ref={currentTime}
+            ></span>
+            <span class="time-left" id="Songlength" ref={songLength}></span>
+          </div>
+        </div>
+        <audio
+          controls
+          preload="metadata"
+          src={songs.length != 0 ? songs[num].src : null}
+          ref={audio}
+        ></audio>
+        <div class="main-song-controls">
           <input
             type="image"
             src="images/previousSong.png"
-            className="btnreppc"
+            className="btnreppc, icon"
             onClick={() => SkipSong(false)}
           ></input>
           {!isPlaying?<input
-            type="image"
-            src="images/playbutton.png"
-            className="btnreppc"
-            onClick={() => {
+              type="image"
+              src="images/playbutton.png"
+              className="btnreppc"
+              onClick={() => {
                 setIsPlaying(true);
-            }}
+              }}
           ></input>:<input
               type="image"
               src="images/playpause.png"
               className="btnreppc"
               onClick={() => {
-                  setIsPlaying(false);
+                setIsPlaying(false);
               }}
           ></input>}
           <input
             type="image"
             src="images/nextSong.png"
-            className="btnreppc"
+            className="btnreppc, icon"
             onClick={() => SkipSong(true)}
           ></input>
         </div>
+      </div>
       </div>
     </>
   );
