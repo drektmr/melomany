@@ -25,6 +25,7 @@ return(
  <header>
    {userLogged.length!==0?<></>:<button><NavLink to="/register"> Registro</NavLink></button>}
    {userLogged.length!==0?<></>:<button><NavLink to="/">Iniciar sesión</NavLink></button>}
+   {userLogged.length!==0?<button><NavLink to="/user">Perfíl</NavLink></button>:<></>}
    {userLogged.length!==0?<button onClick={() => cerrarSession()}>Cerrar sesión</button>:<></>}
 </header>
 )

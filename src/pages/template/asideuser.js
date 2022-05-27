@@ -1,5 +1,6 @@
 import {useContext} from "react";
 import UserContext from "../context/UserContext";
+import {NavLink} from "react-router-dom";
 
 /**
 * Este componente es el aside de nuestra página, se verá en la página User
@@ -48,6 +49,7 @@ function Asideuser(){
                 <td>{userLogged.country?userLogged.country:"Aquí indicas tu país"}</td>
             </tr>
             </tbody>
+            <button className={"asidebutton"}><NavLink to="/edit_profile">Editar Perfíl</NavLink></button>
         </table>
     </aside>
 )

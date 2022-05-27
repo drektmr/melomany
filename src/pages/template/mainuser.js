@@ -43,6 +43,10 @@ function Mainuser(){
         <div id="usuari_main_info">
             <p>{userLogged.description?userLogged.description:"Aquí puedes poner una breve descripción."}</p>
         </div>
+            <h1>Dirección</h1>
+            <div id="usuari_main_info">
+                <p>{userLogged.direction.length>0?userLogged.direction:"Aquí puedes poner tu dirección"}</p>
+            </div>
     </main>
     )
 }

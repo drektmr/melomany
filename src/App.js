@@ -6,6 +6,8 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Playlist from './pages/playlist';
 import User from './pages/user';
+import Profile from './pages/Profile';
+import Error from "./pages/template/Error";
 import SongsContext from './pages/context/SongsContext';
 import audioContext from './pages/context/audioContext';
 import numIdContext from './pages/context/numIdContext';
@@ -38,6 +40,8 @@ function App() {
                                                 <Route path="/main" element={userLogged.length!==0?(<Playlist/>):(<Navigate replace to="/"/>)}/>
                                                 <Route path="/register" element={userLogged.length===0?(<Register/>):(<Navigate replace to="/user"/>)}/>
                                                 <Route path="/user" element={userLogged.length!==0?(<User/>):(<Navigate replace to="/"/>)}/>
+                                                <Route path="/edit_profile" element={<Profile/>}/>
+                                                <Route path="*" element={<Error/>}/>
                                             </Routes>
                                         </Router>
                                     </isPlayingContext.Provider>

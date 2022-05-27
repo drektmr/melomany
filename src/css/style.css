@@ -268,13 +268,13 @@ aside > ul >li:last-child{
     color:#801713;
     font-weight: bold;
 }
-.usuari_main h1{
+.usuari_main h1, .error404 h1{
     text-align: center;
     color: #801713;
     font-weight: lighter;
     font-size: 60px;
 }   
-#usuari_main_info{
+#usuari_main_info, #errorInfo{
     width:87%;
     margin:0 auto;
     background-color: #1c1c1c;
@@ -283,7 +283,7 @@ aside > ul >li:last-child{
     border-radius: 5px;
     padding: 3%;
 }
-#usuari_main_info p{
+#usuari_main_info p, #errorInfo p{
     text-align: justify;
     font-size: 18px;
 }

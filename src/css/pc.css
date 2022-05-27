@@ -46,7 +46,7 @@
     width: 300px;
     border: none;
   }
-  header button {
+  header button, .asidebutton {
     background-color: #811713;
     border-radius: 20px;
     text-transform: uppercase;
@@ -60,6 +60,11 @@
     text-decoration: none;
     color: white;
   }
+  .asidebutton a{
+    text-decoration: none;
+    color: white;
+  }
+
   header > button {
     margin-right: 10px;
   }
@@ -275,9 +280,14 @@ form {
   position: relative;
   padding-bottom: 20px;
 }
-.register {
+.register, .data {
   margin: calc(35vh - 220px) auto;
 }
+
+.data{
+  height: 700px;
+}
+
 form input {
   width: 100%;
   padding: 10px;
