@@ -50,7 +50,7 @@ function Register(){
             if (element.type !== "submit"){return validation(element)};
         })
         if(!error.name && !error.lastName && !error.email && !error.password){
-            fetch("http://192.168.25.4:8080/users/registerUser", {
+            fetch("http://192.168.25.5:8080/users/registerUser", {
                 method: "post",
                 body: JSON.stringify(user),
                 headers:{

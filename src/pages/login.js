@@ -36,7 +36,7 @@ function Login(){
             if (element.type !== "submit"){ return validation(element);}
         })
         if (!error.email && !error.password) {
-            fetch("http://192.168.25.4:8080/users/loginUser", {
+            fetch("http://192.168.25.5:8080/users/loginUser", {
                 method: "post",
                 mode: 'cors',
                 headers: {

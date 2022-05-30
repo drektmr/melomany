@@ -9,4 +9,7 @@
         font-weight: bold;
         color: white;
     }
+    #listadoPlaylists{
+        margin-bottom: 200px;
+    }
 }
