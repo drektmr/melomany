@@ -66,7 +66,7 @@ function Main() {
      */
     useEffect(() => {
         getPlaylists();
-        getSongs(1);
+        playlists.length>0?getSongs(playlists[0].id):getSongs(1);
     }, [userLogged])
 
 
