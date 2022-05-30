@@ -1,11 +1,14 @@
 import {NavLink, useNavigate} from 'react-router-dom';
 import {useContext} from "react";
 import UserContext from "../context/UserContext";
+import isPlayingContext from "../context/isPlayingContext";
+
 /**
 * Este es el header de nuestra página web
 */
 function Header(){
  const {userLogged,setUserLogged} = useContext(UserContext);
+ const {setIsPlaying } = useContext(isPlayingContext);
  const navigation = useNavigate();
  /**
   * Función para cerrar sesión, eliminando el usuario en el localStorage y poniendo a cero el UserContext
@@ -13,7 +16,7 @@ function Header(){
  const cerrarSession = ()=>{
   //Ponemos a cero el contexto
   setUserLogged([]);
-
+  setIsPlaying(false);
   //Eliminamos los datos del usuario del localStorage
   localStorage.removeItem('user');
 

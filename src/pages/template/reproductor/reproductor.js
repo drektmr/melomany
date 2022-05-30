@@ -2,11 +2,14 @@ import React, { useContext, useEffect, useRef } from "react";
 import numIdContext from "../../context/numIdContext";
 import SongsContext from "../../context/SongsContext";
 import isPlayingContext from "../../context/isPlayingContext";
+import playlist from "../../playlist";
+import PlaylistsContext from "../../context/PlaylistsContext";
 
 function Reproductor() {
   const { songs } = useContext(SongsContext);
   const { num, setNum } = useContext(numIdContext);
   const { isPlaying, setIsPlaying } = useContext(isPlayingContext);
+  const {playlists} = useContext(PlaylistsContext);
   const audio = useRef();
   const songLength = useRef();
   const currentTime = useRef();
@@ -37,16 +40,18 @@ function Reproductor() {
     if (isPlaying) {
       audio.current.play();
       setInterval(setProgress, 1);
-    } else {
+    }else{
       audio.current.pause();
     }
   });
 
   function setProgress() {
-    let percentage = audio.current.duration?(audio.current.currentTime / audio.current.duration) * 100:0;
-    document.querySelector(".progress").style.width = percentage + "%";
-    if(percentage===100){
-      SkipSong(true);
+    if(isPlaying===true){
+      let percentage = audio.current.duration?(audio.current.currentTime / audio.current.duration) * 100:0;
+      document.querySelector(".progress").style.width = percentage + "%";
+      if(percentage===100){
+        SkipSong(true);
+      }
     }
   }
 
