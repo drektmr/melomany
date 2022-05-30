@@ -85,6 +85,7 @@ function Main() {
                 <div key="morelistened" id="morelistened">
                     {playlists.map((playlist) => {
                         return <div key={"box_" + playlist.id}  onClick={() => {
+                            setIsPlaying(false);
                             setCurrentPlaylist(playlist)
                         }}>
                             <div>
@@ -129,7 +130,9 @@ function Main() {
                 {songs && songs.length > 0 && songs.map((element, i) => {
                     return <div id={"song_" + element.id} key={"song_" + element.id} className='songs' onClick={() => {
                         setNum(i);
-                        setIsPlaying(true)
+                        if(!isPlaying){
+                            setIsPlaying(true);
+                        }
                     }}>
                         <p>{i + 1}</p>
                         <p>{element.title}</p>

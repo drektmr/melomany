@@ -40,11 +40,14 @@ function Reproductor() {
     } else {
       audio.current.pause();
     }
-  },[isPlaying] || [songs]);
+  });
 
   function setProgress() {
     let percentage = audio.current.duration?(audio.current.currentTime / audio.current.duration) * 100:0;
     document.querySelector(".progress").style.width = percentage + "%";
+    if(percentage===100){
+      SkipSong(true);
+    }
   }
 
   return (
@@ -86,7 +89,7 @@ function Reproductor() {
             type="image"
             src="images/previousSong.png"
             className="btnreppc, icon"
-            onClick={() => SkipSong(false)}
+            onClick={() => {SkipSong(false)}}
           ></input>
           {!isPlaying?
               <input
