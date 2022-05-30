@@ -33,7 +33,15 @@ function Profile() {
         }),
         initialError
     );
+    /**
+     * Constante con la que volveremos al perfil una vez ejecutados los cambios
+     */
     const navigation = useNavigate();
+
+    /**
+     * Función con la que validaremos los cambios
+     * @param e
+     */
     const handleSubmit = (e) => {
         e.preventDefault();
         let user = {};
