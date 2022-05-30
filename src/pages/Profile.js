@@ -55,7 +55,7 @@ function Profile() {
         })
         user["email"] = userLogged.email;
         if (!error.description && !error.dateBirth && !error.country && !error.login && !error.direction && !error.creditCard) {
-            fetch("http://192.168.25.5:8080/users/updateUser", {
+            fetch("http://192.168.25.4:8080/users/updateUser", {
                 method: "post",
                 body: JSON.stringify(user),
                 headers: {

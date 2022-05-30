@@ -45,7 +45,7 @@ function Mainuser(){
         </div>
             <h1>Dirección</h1>
             <div id="usuari_main_info">
-                <p>{userLogged.direction.length>0?userLogged.direction:"Aquí puedes poner tu dirección"}</p>
+                <p>{userLogged.direction&&userLogged.direction.length>0?userLogged.direction:"Aquí puedes poner tu dirección"}</p>
             </div>
     </main>
     )

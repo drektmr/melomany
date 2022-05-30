@@ -22,7 +22,7 @@ function Main() {
      * Función con la que obtendremos las canciones de una lista de reproducción mediante fetch
      */
     const getSongs = (id) => {
-        fetch("http://192.168.25.5:8080/songs", {
+        fetch("http://192.168.25.4:8080/songs", {
             method: "post",
             mode: 'cors',
             headers: {
@@ -43,7 +43,7 @@ function Main() {
      * Función con la que obtendremos las listas de reproducción del usuario logeado mediante fetch
      */
     const getPlaylists = () => {
-        fetch("http://192.168.25.5:8080/playlists", {
+        fetch("http://192.168.25.4:8080/playlists", {
             method: "post",
             mode: 'cors',
             headers: {
@@ -88,7 +88,7 @@ function Main() {
                             setCurrentPlaylist(playlist)
                         }}>
                             <div>
-                                <img src={playlist.image}></img>
+                                <img src={playlist.image?playlist.image:"./images/prueba1"}></img>
                             </div>
                             <div>
                                 <p>{playlist.name}</p>
